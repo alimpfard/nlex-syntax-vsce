@@ -1,0 +1,29 @@
+{
+    "publisher": "AnotherTest",
+    "name": "nlex",
+    "displayName": "NLex",
+    "description": "NLex Language Syntax",
+    "version": "0.0.4",
+    "repository": {
+        "url": "https://github.com/alimpfard/nlex-syntax-vsce.git"
+    },
+    "engines": {
+        "vscode": "^1.40.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "nlex",
+            "aliases": ["NLex", "nlex"],
+            "extensions": [".nlex"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "nlex",
+            "scopeName": "source.NLex",
+            "path": "./syntaxes/nlex.tmLanguage"
+        }]
+    }
+}
