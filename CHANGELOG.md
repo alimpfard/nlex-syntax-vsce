@@ -15,3 +15,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.2]
 ### Added
 - syntax highlight for comments inside regular expressions (`(?#...)`)
+
+## [0.0.5]
+### Added
+- Syntax definitions for `define <code>`
