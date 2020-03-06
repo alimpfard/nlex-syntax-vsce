@@ -66,6 +66,40 @@
         </dict>
         <dict>
           <key>begin</key>
+          <string>(define)(\s+)</string>
+          <key>beginCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.NLex</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>punctuation.NLex</string>
+            </dict>
+          </dict>
+          <key>patterns</key>
+          <array> 
+            <dict>
+              <key>include</key>
+              <string>#kaleid_out_of_line</string>
+            </dict>
+           </array>
+          <key>end</key>
+          <string>(^$)</string>
+          <key>endCaptures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>constant.character.escape.comment.block.preprocessor.NLex</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>begin</key>
           <string>(tag)(\s*)(pos)</string>
           <key>beginCaptures</key>
           <dict>
@@ -420,6 +454,87 @@
     <dict>
       <key>patterns</key>
       <array> 
+        <dict>
+          <key>match</key>
+          <string>(\d+|\d*\.\d+)</string>
+          <key>name</key>
+          <string>constant.numeric.comment.block.preprocessor.NLex</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(&quot;)((?:[^\x{0022}]|\\&quot;)*)(&quot;)</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>string.comment.block.preprocessor.NLex</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>string.comment.block.preprocessor.NLex</string>
+            </dict>
+            <key>3</key>
+            <dict>
+              <key>name</key>
+              <string>string.comment.block.preprocessor.NLex</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(\b(?:if|then|else|def|extern|for|in|var|global|while)\b)</string>
+          <key>name</key>
+          <string>keyword.comment.block.preprocessor.NLex</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(\w+)(\s*\(\s*)</string>
+          <key>captures</key>
+          <dict>
+            <key>1</key>
+            <dict>
+              <key>name</key>
+              <string>entity.name.function.comment.block.preprocessor.NLex</string>
+            </dict>
+            <key>2</key>
+            <dict>
+              <key>name</key>
+              <string>keyword.operator.comment.block.preprocessor.NLex</string>
+            </dict>
+          </dict>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(\)|,)</string>
+          <key>name</key>
+          <string>keyword.operator.comment.block.preprocessor.NLex</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(\w+)</string>
+          <key>name</key>
+          <string>entity.name.function.comment.block.preprocessor.NLex</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>([^\x{0022}\w]+)</string>
+          <key>name</key>
+          <string>keyword.operator.comment.block.preprocessor.NLex</string>
+        </dict>
+       </array>
+    </dict>
+    <key>kaleid_out_of_line</key>
+    <dict>
+      <key>patterns</key>
+      <array> 
+        <dict>
+          <key>match</key>
+          <string>(\\$)</string>
+          <key>name</key>
+          <string>comment.block.preprocessor.NLex</string>
+        </dict>
         <dict>
           <key>match</key>
           <string>(\d+|\d*\.\d+)</string>
@@ -1135,3 +1250,4 @@
   </dict>
 </dict>
 </plist>
+
